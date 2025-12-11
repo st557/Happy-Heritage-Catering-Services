@@ -344,61 +344,7 @@
                 transform: translateX(-50%) translateY(-5px);
             }
         }
-         /* Gallery Section */
-        .gallery {
-            background: var(--bg-light);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            height: 250px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-overlay h3 {
-            color: white;
-            font-size: 1.2rem;
-        }
-
+        
         /* Section Styles */
         .section {
             padding: 80px 20px;
@@ -435,42 +381,245 @@
             font-size: 1.1rem;
             margin-top: 20px;
         }
-
-        /* Menu Section */
-        .menu-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        
+        /* New Content Sections */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin-bottom: 40px;
-            flex-wrap: wrap;
         }
-
-        .menu-tab {
-            padding: 12px 30px;
-            background: var(--bg-light);
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
+        
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            padding: 30px;
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .content-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .content-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .content-card .btn {
+            margin-top: 10px;
+        }
+        
+        /* Blog Section Styles */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .blog-title {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        
+        .blog-excerpt {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+        
+        .read-more:hover {
+            gap: 10px;
+        }
+        
+        /* FAQ Section Styles */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-dark);
             cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             transition: var(--transition);
         }
-
-        .menu-tab.active,
-        .menu-tab:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
+        
+        .faq-question:hover {
+            color: var(--primary-color);
         }
-
-        .menu-grid {
+        
+        .faq-icon {
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        .faq-answer-content {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-
-        .menu-item {
+        
+        .testimonial-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .testimonial-quote {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-rating {
+            color: #f39c12;
+            margin-bottom: 15px;
+        }
+        
+        /* Special Offers Section */
+        .offers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .offer-card {
             background: white;
             border-radius: 15px;
             overflow: hidden;
@@ -478,115 +627,174 @@
             transition: var(--transition);
             position: relative;
         }
-
-        .menu-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+        
+        .offer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
         }
-
-        .menu-item-image {
-            position: relative;
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .menu-item-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .menu-item:hover .menu-item-image img {
-            transform: scale(1.1);
-        }
-
-        .menu-badge {
+        
+        .offer-badge {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: var(--primary-color);
+            background: var(--accent-color);
             color: white;
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
+            z-index: 1;
         }
-
-        .menu-item-content {
+        
+        .offer-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .offer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .offer-content {
             padding: 25px;
         }
-
-        .menu-item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 10px;
-        }
-
-        .menu-item-title {
-            font-size: 1.3rem;
+        
+        .offer-title {
+            font-size: 1.5rem;
             color: var(--text-dark);
-            margin-bottom: 5px;
+            margin-bottom: 15px;
         }
-
-        .menu-item-price {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .menu-item-description {
+        
+        .offer-description {
             color: var(--text-light);
             line-height: 1.6;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
-
-        .menu-item-meta {
-            display: flex;
-            gap: 20px;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 15px;
-        }
-
-        .menu-item-meta span {
+        
+        .offer-validity {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
         }
-
-        /* Add to Cart Button */
-        .add-to-cart-btn {
+        
+        .offer-validity i {
+            color: var(--primary-color);
+        }
+        
+        .offer-cta {
             width: 100%;
-            padding: 12px;
+            margin-top: 10px;
+        }
+        
+        /* Delivery Information Section */
+        .delivery-info {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .delivery-info h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .delivery-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .delivery-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .step-icon {
+            width: 60px;
+            height: 60px;
             background: var(--primary-color);
             color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
         }
-
-        .add-to-cart-btn:hover {
+        
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        
+        .step-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        /* Newsletter Section */
+        .newsletter {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .newsletter h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 0 50px 50px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .newsletter-button:hover {
             background: var(--accent-color);
-            transform: translateY(-2px);
         }
-
-        .add-to-cart-btn.added {
-            background: #27ae60;
-        }
-
-        .add-to-cart-btn.added::before {
-            content: '✓ ';
-        }
-
+        
         /* Cart Sidebar */
         .cart-sidebar {
             position: fixed;
@@ -912,371 +1120,6 @@
             background: #e74c3c;
         }
 
-        /* Checkout Page Styles */
-        .checkout-container {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            height: 100vh;
-            background: white;
-            box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-            transition: right 0.3s ease;
-            z-index: 1002;
-            overflow-y: auto;
-        }
-
-        .checkout-container.active {
-            right: 0;
-        }
-
-        .checkout-header {
-            padding: 20px;
-            background: var(--primary-color);
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .checkout-header h2 {
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .close-checkout {
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition);
-            background: none;
-            border: none;
-            color: white;
-        }
-
-        .close-checkout:hover {
-            transform: rotate(90deg);
-        }
-
-        .checkout-content {
-            display: flex;
-            flex-direction: column;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 30px 20px;
-        }
-
-        .checkout-steps {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .checkout-steps::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: #e0e0e0;
-            z-index: 1;
-        }
-
-        .step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .step-number {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #e0e0e0;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-bottom: 10px;
-            transition: var(--transition);
-        }
-
-        .step.active .step-number {
-            background: var(--primary-color);
-        }
-
-        .step.completed .step-number {
-            background: #27ae60;
-        }
-
-        .step-label {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            text-align: center;
-        }
-
-        .step.active .step-label {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .checkout-forms {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .checkout-form-section {
-            background: var(--bg-light);
-            padding: 25px;
-            border-radius: 10px;
-        }
-
-        .checkout-form-section h3 {
-            margin-bottom: 20px;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(211, 84, 0, 0.2);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .payment-methods {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .payment-method {
-            flex: 1;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            text-align: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .payment-method:hover {
-            border-color: var(--primary-color);
-        }
-
-        .payment-method.selected {
-            border-color: var(--primary-color);
-            background: rgba(211, 84, 0, 0.1);
-        }
-
-        .payment-method i {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .order-summary {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .order-summary h3 {
-            margin-bottom: 20px;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .order-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .order-item:last-child {
-            border-bottom: none;
-        }
-
-        .order-item-name {
-            font-weight: 500;
-        }
-
-        .order-item-price {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .order-totals {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px solid #e0e0e0;
-        }
-
-        .order-total-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .order-total-row.final {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .place-order-btn {
-            width: 100%;
-            padding: 15px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 20px;
-        }
-
-        .place-order-btn:hover {
-            background: var(--accent-color);
-            transform: translateY(-2px);
-        }
-
-        .place-order-btn:disabled {
-            background: #95a5a6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* Order Confirmation */
-        .order-confirmation {
-            display: none;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .order-confirmation.active {
-            display: block;
-        }
-
-        .confirmation-icon {
-            width: 80px;
-            height: 80px;
-            background: #27ae60;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
-        }
-
-        .confirmation-title {
-            font-size: 1.8rem;
-            color: var(--text-dark);
-            margin-bottom: 15px;
-        }
-
-        .confirmation-message {
-            color: var(--text-light);
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .order-details {
-            background: var(--bg-light);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: left;
-            margin-bottom: 30px;
-        }
-
-        .order-details h4 {
-            margin-bottom: 15px;
-            color: var(--text-dark);
-        }
-
-        .order-details-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .order-details-label {
-            color: var(--text-light);
-        }
-
-        .order-details-value {
-            font-weight: 600;
-        }
-
-        .back-to-menu-btn {
-            padding: 15px 30px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .back-to-menu-btn:hover {
-            background: var(--accent-color);
-            transform: translateY(-2px);
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-menu {
@@ -1305,15 +1148,6 @@
                 align-items: center;
             }
 
-            .menu-tabs {
-                gap: 10px;
-            }
-
-            .menu-tab {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-
             .section {
                 padding: 60px 20px;
             }
@@ -1321,17 +1155,9 @@
             .section-title h2 {
                 font-size: 2rem;
             }
-
-            .checkout-forms {
+            
+            .content-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .payment-methods {
-                flex-direction: column;
             }
         }
 
@@ -1348,17 +1174,16 @@
                 min-height: 90vh;
             }
 
-            .menu-grid {
+            .blog-grid {
                 grid-template-columns: 1fr;
             }
-
-            .checkout-steps {
-                flex-wrap: wrap;
-                gap: 20px;
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
             }
-
-            .checkout-steps::before {
-                display: none;
+            
+            .offers-container {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1389,24 +1214,6 @@
                 background-position: -200% 0;
             }
         }
-
-        /* Form Validation Styles */
-        .form-group.error input,
-        .form-group.error select,
-        .form-group.error textarea {
-            border-color: #e74c3c;
-        }
-
-        .error-message {
-            color: #e74c3c;
-            font-size: 0.85rem;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .form-group.error .error-message {
-            display: block;
-        }
     </style>
 </head>
 <body>
@@ -1428,9 +1235,9 @@
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="#contact" class="nav-cta">Book Table</a></li>
                 <li class="cart-icon" id="cartIcon">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count" id="cartCount">0</span>
@@ -1453,9 +1260,9 @@
         <ul class="mobile-menu-list">
             <li><a href="#home" class="mobile-nav-link">Home</a></li>
             <li><a href="#menu" class="mobile-nav-link">Menu</a></li>
+            <li><a href="#blog" class="mobile-nav-link">Blog</a></li>
             <li><a href="#about" class="mobile-nav-link">About</a></li>
             <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
-            <li><a href="#contact" class="mobile-nav-link" style="background: var(--primary-color); color: white; text-align: center;">Book Table</a></li>
         </ul>
     </div>
 
@@ -1686,53 +1493,366 @@
         </div>
     </section>
 
-    
-         <!-- Gallery Section -->
-    <section class="section gallery" id="gallery">
+    <!-- Blog Section -->
+    <section class="section" id="blog">
         <div class="section-title fade-in">
-            <h2>Gallery</h2>
-            <p>A visual journey through our culinary world</p>
+            <h2>Culinary Stories</h2>
+            <p>Explore the rich heritage behind our dishes</p>
         </div>
-        <div class="gallery-grid fade-in">
-            <div class="gallery-item">
-                <img src="bitterleaf.jpg" alt="Gallery Image">
-                <div class="gallery-overlay">
-                    <h3>Signature Dish</h3>
+        <div class="blog-grid fade-in">
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://picsum.photos/seed/blog1/400/300" alt="Blog Post">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> March 15, 2024</span>
+                        <span><i class="far fa-user"></i> Chef Michael</span>
+                    </div>
+                    <h3 class="blog-title">The Art of Traditional Spice Blending</h3>
+                    <p class="blog-excerpt">Discover the centuries-old techniques behind our signature spice blends and how they create the distinctive flavors that define our heritage cuisine.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://picsum.photos/seed/blog2/400/300" alt="Blog Post">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> March 8, 2024</span>
+                        <span><i class="far fa-user"></i> Chef Amara</span>
+                    </div>
+                    <h3 class="blog-title">Farm to Table: Our Sourcing Philosophy</h3>
+                    <p class="blog-excerpt">Learn about our commitment to local farmers and sustainable practices that ensure the freshest ingredients while supporting our community.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://picsum.photos/seed/blog3/400/300" alt="Blog Post">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> March 1, 2024</span>
+                        <span><i class="far fa-user"></i> Chef Kemi</span>
+                    </div>
+                    <h3 class="blog-title">Celebrating Seasonal Ingredients</h3>
+                    <p class="blog-excerpt">Explore how our menu changes with the seasons to highlight the best of what's available, following traditional culinary calendars.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq" style="background: var(--bg-light);">
+        <div class="section-title fade-in">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about ordering from Happy Heritage Kitchen</p>
+        </div>
+        <div class="faq-container fade-in">
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I place an order?
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Placing an order is simple! Browse our menu, select your favorite dishes, and add them to your cart. Then proceed to checkout where you can provide your delivery details and choose a payment method. The entire process takes just a few minutes!
+                    </div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="fresh salad.jpg" alt="Gallery Image">
-                <div class="gallery-overlay">
-                    <h3>Fresh Ingredients</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    What are your delivery hours?
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        We deliver from Monday to Saturday, 8:00 AM to 8:00 PM, and on Sundays from 11:00 AM to 8:00 PM. Our delivery team ensures your food arrives fresh and at the perfect temperature within 30-45 minutes of placing your order.
+                    </div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="IMG_20210905_142750_629.jpg" alt="Gallery Image">
-                <div class="gallery-overlay">
-                    <h3>Master Chef</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do you accommodate dietary restrictions?
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Absolutely! We offer a variety of vegetarian, vegan, and gluten-free options. When placing your order, you can specify any dietary restrictions in the delivery notes, and our chefs will prepare your meal with the utmost care to meet your needs.
+                    </div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="platter.jpg" alt="Gallery Image">
-                <div class="gallery-overlay">
-                    <h3>Dining Experience</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    How far in advance should I place a large order?
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        For orders serving more than 10 people, we recommend placing your order at least 24 hours in advance. This allows us to ensure we have all the necessary ingredients and can allocate the proper preparation time for your special event.
+                    </div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="desert.jpg" alt="Gallery Image">
-                <div class="gallery-overlay">
-                    <h3>Dessert Special</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    What payment methods do you accept?
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        We accept all major credit cards, debit cards, PayPal, and cash on delivery. All transactions are secure and encrypted. For corporate accounts, we also offer monthly billing options.
+                    </div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="tea.jpg" alt="Gallery Image">
-                <div class="gallery-overlay">
-                    <h3>Wine Selection</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I schedule a recurring delivery?
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Yes! We offer a subscription service where you can schedule regular deliveries on a weekly or bi-weekly basis. Subscribers enjoy a 10% discount and priority preparation. Contact us to set up your personalized meal plan.
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-        <!-- Menu Section -->
+
+    <!-- Delivery Information Section -->
+    <section class="section" id="delivery" style="background: var(--bg-light);">
+        <div class="section-title fade-in">
+            <h2>Delivery Information</h2>
+            <p>How we bring our heritage flavors to your doorstep</p>
+        </div>
+        <div class="delivery-info fade-in">
+            <div class="delivery-steps">
+                <div class="delivery-step">
+                    <div class="step-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="step-title">Fresh Preparation</div>
+                    <div class="step-description">Our chefs prepare each order fresh using traditional techniques and the finest ingredients.</div>
+                </div>
+                <div class="delivery-step">
+                    <div class="step-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="step-title">Secure Packaging</div>
+                    <div class="step-description">We use eco-friendly packaging that maintains temperature and preserves flavor during transit.</div>
+                </div>
+                <div class="delivery-step">
+                    <div class="step-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="step-title">Prompt Delivery</div>
+                    <div class="step-description">Our delivery team ensures your order arrives within 30-45 minutes, hot and fresh.</div>
+                </div>
+                <div class="delivery-step">
+                    <div class="step-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <div class="step-title">Customer Satisfaction</div>
+                    <div class="step-description">We follow up to ensure every order meets your expectations and resolves any issues promptly.</div>
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <h3><i class="fas fa-map-marked-alt"></i> Delivery Areas</h3>
+                <p>We currently deliver to the following areas within Lagos:</p>
+                <ul style="margin-top: 15px; padding-left: 20px; color: var(--text-light);">
+                    <li>Ikoyi</li>
+                    <li>Victoria Island</li>
+                    <li>Lekki Phase 1</li>
+                    <li>Lekki Phase 2</li>
+                    <li>Ikeja</li>
+                    <li>Surulere</li>
+                    <li>Apapa</li>
+                    <li>Yaba</li>
+                    <li>Mushin</li>
+                </ul>
+                <p style="margin-top: 15px;">Don't see your area? <a href="#contact" style="color: var(--primary-color);">Contact us</a> to inquire about expanding our delivery zones.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section class="section" id="offers">
+        <div class="section-title fade-in">
+            <h2>Special Offers</h2>
+            <p>Exclusive deals and promotions from Happy Heritage Kitchen</p>
+        </div>
+        <div class="offers-container fade-in">
+            <div class="offer-card">
+                <span class="offer-badge">Limited Time</span>
+                <div class="offer-image">
+                    <img src="https://picsum.photos/seed/offer1/400/300" alt="Family Feast">
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">Family Feast Deal</h3>
+                    <p class="offer-description">Order for 4 or more people and get 15% off your entire order, plus a complimentary dessert platter.</p>
+                    <div class="offer-validity">
+                        <i class="far fa-calendar"></i> Valid until end of month
+                    </div>
+                    <div class="offer-cta">
+                        <a href="#menu" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="offer-card">
+                <div class="offer-image">
+                    <img src="https://picsum.photos/seed/offer2/400/300" alt="Weekly Special">
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">Weekly Subscription</h3>
+                    <p class="offer-description">Subscribe to our weekly meal plan and receive 10% off every order, plus priority delivery and exclusive subscriber-only dishes.</p>
+                    <div class="offer-validity">
+                        <i class="fas fa-infinity"></i> Ongoing subscription
+                    </div>
+                    <div class="offer-cta">
+                        <a href="#contact" class="btn btn-primary">Subscribe Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="offer-card">
+                <span class="offer-badge">Popular</span>
+                <div class="offer-image">
+                    <img src="https://picsum.photos/seed/offer3/400/300" alt="Lunch Special">
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">Lunch Express</h3>
+                    <p class="offer-description">Order between 11 AM - 2 PM on weekdays and get a free drink with any main course.</p>
+                    <div class="offer-validity">
+                        <i class="far fa-clock"></i> Monday - Friday, 11 AM - 2 PM
+                    </div>
+                    <div class="offer-cta">
+                        <a href="#menu" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="section-title fade-in">
+            <h2>What Our Customers Say</h2>
+            <p>Real experiences from our valued customers</p>
+        </div>
+        <div class="testimonials-grid fade-in">
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-quote">"The online ordering system is so easy to use! I placed my order for a family gathering and everything arrived on time and perfectly packaged. The food was as delicious as dining in the restaurant."</p>
+                <div class="testimonial-author">
+                    <img src="https://picsum.photos/seed/person1/100/100" alt="Customer" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Ahmed Bello</h4>
+                        <p>Regular Customer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-quote">"I've been ordering from Happy Heritage Kitchen for months now. The quality is consistently excellent, and the delivery team is always friendly. Their heritage soup is my absolute favorite!"</p>
+                <div class="testimonial-author">
+                    <img src="https://picsum.photos/seed/person2/100/100" alt="Customer" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Chioma Okpala</h4>
+                        <p>Regular Customer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-quote">"The subscription service has been a game-changer for our family. We get fresh, authentic meals delivered weekly, and it's saved us so much time while introducing us to new heritage dishes."</p>
+                <div class="testimonial-author">
+                    <img src="https://picsum.photos/seed/person3/100/100" alt="Customer" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Emeka Okafor</h4>
+                        <p>Subscription Customer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="section-title fade-in">
+            <h2>Why Order From Happy Heritage Kitchen?</h2>
+            <p>Fresh, authentic, and delivered with care</p>
+        </div>
+        <div class="content-grid fade-in">
+            <div class="content-card">
+                <h3><i class="fas fa-leaf"></i> Fresh Ingredients</h3>
+                <p>We source the finest local ingredients from trusted farmers who use traditional, sustainable farming methods. Our commitment to quality means every dish is made with ingredients at their peak freshness and flavor.</p>
+                <a href="#menu" class="btn btn-primary">Explore Menu</a>
+            </div>
+            
+            <div class="content-card">
+                <h3><i class="fas fa-history"></i> Authentic Recipes</h3>
+                <p>Our dishes are prepared using recipes passed down through generations. Each bite connects you to the rich culinary heritage of our region, with flavors that tell a story of tradition and innovation.</p>
+                <a href="#menu" class="btn btn-primary">Explore Menu</a>
+            </div>
+            
+            <div class="content-card">
+                <h3><i class="fas fa-truck"></i> Fast Delivery</h3>
+                <p>Our dedicated delivery team ensures your order arrives hot and fresh within 30-45 minutes. We use specialized packaging that maintains temperature and preserves the authentic flavors of our heritage cuisine.</p>
+                <a href="#delivery" class="btn btn-primary">Learn More</a>
+            </div>
+            
+            <div class="content-card">
+                <h3><i class="fas fa-shield-alt"></i> Quality Guaranteed</h3>
+                <p>Every order is prepared with the utmost care and attention to detail. If you're not completely satisfied with your order, we'll make it right or provide a refund - no questions asked.</p>
+                <a href="#contact" class="btn btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter" id="newsletter">
+        <div class="fade-in">
+            <h2>Join Our Culinary Journey</h2>
+            <p>Subscribe to receive exclusive recipes, heritage stories, and special offers</p>
+        </div>
+        <form class="newsletter-form" id="newsletterForm">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+            <button type="submit" class="newsletter-button">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Menu Section -->
     <section class="section" id="menu" style="background: var(--bg-light);">
         <div class="section-title fade-in">
             <h2>Order Online</h2>
@@ -1740,44 +1860,6 @@
         </div>
         <div class="menu-grid fade-in" id="menuGrid">
             <!-- Menu items will be dynamically loaded here -->
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section" id="about">
-        <div class="section-title fade-in">
-            <h2>Why Order From Us?</h2>
-            <p>Fresh, authentic, and delivered with care</p>
-        </div>
-        <div class="about-content fade-in" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-            <div class="feature-card" style="text-align: center; padding: 30px;">
-                <div class="feature-icon" style="margin: 0 auto 20px; width: 70px; height: 70px; font-size: 2rem;">
-                    <i class="fas fa-truck"></i>
-                </div>
-                <h3>Fast Delivery</h3>
-                <p>30-minute delivery guarantee</p>
-            </div>
-            <div class="feature-card" style="text-align: center; padding: 30px;">
-                <div class="feature-icon" style="margin: 0 auto 20px; width: 70px; height: 70px; font-size: 2rem;">
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <h3>Fresh Ingredients</h3>
-                <p>Always fresh, never frozen</p>
-            </div>
-            <div class="feature-card" style="text-align: center; padding: 30px;">
-                <div class="feature-icon" style="margin: 0 auto 20px; width: 70px; height: 70px; font-size: 2rem;">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Safe Packaging</h3>
-                <p>Contactless delivery available</p>
-            </div>
-            <div class="feature-card" style="text-align: center; padding: 30px;">
-                <div class="feature-icon" style="margin: 0 auto 20px; width: 70px; height: 70px; font-size: 2rem;">
-                    <i class="fas fa-award"></i>
-                </div>
-                <h3>Quality Guaranteed</h3>
-                <p>100% satisfaction guarantee</p>
-            </div>
         </div>
     </section>
 
@@ -1795,7 +1877,7 @@
                     </div>
                     <div class="contact-details">
                         <h3>Location</h3>
-                        <p>Shop D025 Sokoto Plaza, BBA/ICC<br>Trade Fair, Amuwo-Odofin, Lagos, Nigeria.</p>
+                        <p>Shop D025 Sokoto Plaza, BBA/ICC.<br>Trade Fair, Amuwo-Odofin, Lagos, Nigeria.</p>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -1803,9 +1885,9 @@
                         <i class="fas fa-clock"></i>
                     </div>
                     <div class="contact-details">
-                        <h3>Delivery Hours</h3>
-                        <p>Monday - Saturday: 8:00 AM - 8:00 PM </p>
-                        <p>Sunday: 11:00 AM - 8:00 PM</p>
+                        <h3>Opening Hours</h3>
+                        <p>Monday - Saturday: 8:00 AM - 8:00 PM<br>
+                           Sunday: 11:00 AM - 8:00 PM</p>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -1814,7 +1896,7 @@
                     </div>
                     <div class="contact-details">
                         <h3>Order Hotline</h3>
-                        <p>Phone: +234 806 030 2608<br>okpalalucymarylex@gmail.com</p>
+                        <p>Phone: +234 806 030 2608<br>Email: okpalalucymarylex@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -1849,6 +1931,7 @@
                     <a href="#" class="social-link" style="width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1); color: white; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: var(--transition); text-decoration: none;"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-link" style="width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1); color: white; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: var(--transition); text-decoration: none;"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-link" style="width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1); color: white; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: var(--transition); text-decoration: none;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" style="width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1); color: white; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: var(--transition); text-decoration: none;"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <div class="footer-section">
@@ -1857,6 +1940,7 @@
                     <li style="margin-bottom: 10px;"><a href="#home" style="color: #bdc3c7; text-decoration: none;">Home</a></li>
                     <li style="margin-bottom: 10px;"><a href="#menu" style="color: #bdc3c7; text-decoration: none;">Menu</a></li>
                     <li style="margin-bottom: 10px;"><a href="#about" style="color: #bdc3c7; text-decoration: none;">About</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#blog" style="color: #bdc3c7; text-decoration: none;">Blog</a></li>
                     <li style="margin-bottom: 10px;"><a href="#contact" style="color: #bdc3c7; text-decoration: none;">Contact</a></li>
                 </ul>
             </div>
@@ -1867,7 +1951,17 @@
                     <li style="margin-bottom: 10px;">Food Delivery</li>
                     <li style="margin-bottom: 10px;">Catering Services</li>
                     <li style="margin-bottom: 10px;">Dine-in Experience</li>
+                    <li style="margin-bottom: 10px;">Gift Cards</li>
+                    <li style="margin-bottom: 10px;">Subscription Service</li>
                 </ul>
+            </div>
+            <div class="footer-section">
+                <h3 style="margin-bottom: 20px; color: var(--primary-color);">Newsletter</h3>
+                <p style="color: #bdc3c7; line-height: 1.8; margin-bottom: 10px;">Subscribe to get special offers and updates</p>
+                <form style="margin-top: 20px;">
+                    <input type="email" placeholder="Your email" style="width: 100%; padding: 10px; border-radius: 5px; border: none; margin-bottom: 10px;">
+                    <button type="submit" style="width: 100%; padding: 10px; background: var(--primary-color); color: white; border: none; border-radius: 5px; cursor: pointer;">Subscribe</button>
+                </form>
             </div>
         </div>
         <div class="footer-bottom" style="text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #95a5a6;">
@@ -2098,7 +2192,6 @@
         const mobileMenu = document.getElementById('mobileMenu');
         const closeMenu = document.getElementById('closeMenu');
         const menuGrid = document.getElementById('menuGrid');
-        const menuTabs = document.querySelectorAll('.menu-tab');
         const cartIcon = document.getElementById('cartIcon');
         const cartSidebar = document.getElementById('cartSidebar');
         const cartOverlay = document.getElementById('cartOverlay');
@@ -2119,6 +2212,9 @@
         const cardPaymentForm = document.getElementById('cardPaymentForm');
         const paypalPaymentForm = document.getElementById('paypalPaymentForm');
         const cashPaymentForm = document.getElementById('cashPaymentForm');
+
+        // Newsletter Form
+        const newsletterForm = document.getElementById('newsletterForm');
 
         // Preloader
         window.addEventListener('load', () => {
@@ -2188,7 +2284,7 @@
         // Payment Method Selection
         paymentMethods.forEach(method => {
             method.addEventListener('click', () => {
-                paymentMethods.forEach(m => m.classList.remove('selected'));
+                paymentMethods.forEach(m => m.classList.remove('selected')));
                 method.classList.add('selected');
                 
                 // Hide all payment forms
@@ -2232,90 +2328,6 @@
             orderSubtotal.textContent = `$${subtotal.toFixed(2)}`;
             orderTax.textContent = `$${tax.toFixed(2)}`;
             orderTotal.textContent = `$${total.toFixed(2)}`;
-        }
-
-        // Form Validation
-        function validateForm(formId) {
-            const form = document.getElementById(formId);
-            const inputs = form.querySelectorAll('input[required], textarea[required]');
-            let isValid = true;
-            
-            inputs.forEach(input => {
-                const formGroup = input.closest('.form-group');
-                if (!input.value.trim()) {
-                    formGroup.classList.add('error');
-                    isValid = false;
-                } else {
-                    formGroup.classList.remove('error');
-                    
-                    // Special validation for email
-                    if (input.type === 'email' && !validateEmail(input.value)) {
-                        formGroup.classList.add('error');
-                        isValid = false;
-                    }
-                    
-                    // Special validation for phone
-                    if (input.id === 'phone' && !validatePhone(input.value)) {
-                        formGroup.classList.add('error');
-                        isValid = false;
-                    }
-                    
-                    // Special validation for card number
-                    if (input.id === 'cardNumber' && !validateCardNumber(input.value)) {
-                        formGroup.classList.add('error');
-                        isValid = false;
-                    }
-                    
-                    // Special validation for expiry date
-                    if (input.id === 'expiryDate' && !validateExpiryDate(input.value)) {
-                        formGroup.classList.add('error');
-                        isValid = false;
-                    }
-                    
-                    // Special validation for CVV
-                    if (input.id === 'cvv' && !validateCVV(input.value)) {
-                        formGroup.classList.add('error');
-                        isValid = false;
-                    }
-                }
-            });
-            
-            return isValid;
-        }
-
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-
-        function validatePhone(phone) {
-            const re = /^[\d\s\-\+\(\)]+$/;
-            return re.test(phone) && phone.replace(/\D/g, '').length >= 10;
-        }
-
-        function validateCardNumber(cardNumber) {
-            const re = /^[\d\s]+$/;
-            return re.test(cardNumber) && cardNumber.replace(/\D/g, '').length >= 13;
-        }
-
-        function validateExpiryDate(expiryDate) {
-            const re = /^(0[1-9]|1[0-2])\/\d{2}$/;
-            if (!re.test(expiryDate)) return false;
-            
-            const [month, year] = expiryDate.split('/');
-            const currentDate = new Date();
-            const currentYear = currentDate.getFullYear() % 100;
-            const currentMonth = currentDate.getMonth() + 1;
-            
-            if (parseInt(year) < currentYear) return false;
-            if (parseInt(year) === currentYear && parseInt(month) < currentMonth) return false;
-            
-            return true;
-        }
-
-        function validateCVV(cvv) {
-            const re = /^\d{3,4}$/;
-            return re.test(cvv);
         }
 
         // Place Order
@@ -2426,6 +2438,90 @@
             });
         });
 
+        // Form Validation
+        function validateForm(formId) {
+            const form = document.getElementById(formId);
+            const inputs = form.querySelectorAll('input[required], textarea[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                const formGroup = input.closest('.form-group');
+                if (!input.value.trim()) {
+                    formGroup.classList.add('error');
+                    isValid = false;
+                } else {
+                    formGroup.classList.remove('error');
+                    
+                    // Special validation for email
+                    if (input.type === 'email' && !validateEmail(input.value)) {
+                        formGroup.classList.add('error');
+                        isValid = false;
+                    }
+                    
+                    // Special validation for phone
+                    if (input.id === 'phone' && !validatePhone(input.value)) {
+                        formGroup.classList.add('error');
+                        isValid = false;
+                    }
+                    
+                    // Special validation for card number
+                    if (input.id === 'cardNumber' && !validateCardNumber(input.value)) {
+                        formGroup.classList.add('error');
+                        isValid = false;
+                    }
+                    
+                    // Special validation for expiry date
+                    if (input.id === 'expiryDate' && !validateExpiryDate(input.value)) {
+                        formGroup.classList.add('error');
+                        isValid = false;
+                    }
+                    
+                    // Special validation for CVV
+                    if (input.id === 'cvv' && !validateCVV(input.value)) {
+                        formGroup.classList.add('error');
+                        isValid = false;
+                    }
+                }
+            });
+            
+            return isValid;
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validatePhone(phone) {
+            const re = /^[\d\s\-\+\(\)]+$/;
+            return re.test(phone) && phone.replace(/\D/g, '').length >= 10;
+        }
+
+        function validateCardNumber(cardNumber) {
+            const re = /^[\d\s]+$/;
+            return re.test(cardNumber) && cardNumber.replace(/\D/g, '').length >= 13;
+        }
+
+        function validateExpiryDate(expiryDate) {
+            const re = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            if (!re.test(expiryDate)) return false;
+            
+            const [month, year] = expiryDate.split('/');
+            const currentDate = new Date();
+            const currentYear = currentDate.getFullYear() % 100;
+            const currentMonth = currentDate.getMonth() + 1;
+            
+            if (parseInt(year) < currentYear) return false;
+            if (parseInt(year) === currentYear && parseInt(month) < currentMonth) return false;
+            
+            return true;
+        }
+
+        function validateCVV(cvv) {
+            const re = /^\d{3,4}$/;
+            return re.test(cvv);
+        }
+
         // Active navigation link
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
@@ -2472,7 +2568,7 @@
                             <span><i class="fas fa-clock"></i> ${item.time}</span>
                             <span><i class="fas fa-fire"></i> ${item.calories}</span>
                         </div>
-                        <button class="add-to-cart-btn" onclick="addToCart(${item.id})">
+                        <button class="add-to-cart-btn" onclick="cart.addItem(${JSON.stringify(item).replace(/"/g, '\\"')})">
                             <i class="fas fa-cart-plus"></i> Add to Cart
                         </button>
                     </div>
@@ -2493,25 +2589,11 @@
             });
         }
 
-        // Add to cart function
-        function addToCart(itemId) {
-            const item = menuItems.find(menuItem => menuItem.id === itemId);
-            if (item) {
-                cart.addItem(item);
-                
-                // Animate button
-                const button = event.target.closest('.add-to-cart-btn');
-                button.classList.add('added');
-                button.innerHTML = '<i class="fas fa-check"></i> Added!';
-                
-                setTimeout(() => {
-                    button.classList.remove('added');
-                    button.innerHTML = '<i class="fas fa-cart-plus"></i> Add to Cart';
-                }, 2000);
-            }
-        }
+        // Initialize menu
+        renderMenuItems();
 
         // Menu tabs functionality
+        const menuTabs = document.querySelectorAll('.menu-tab');
         menuTabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 menuTabs.forEach(t => t.classList.remove('active'));
@@ -2520,8 +2602,39 @@
             });
         });
 
-        // Initialize menu
-        renderMenuItems();
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = question.nextElementSibling;
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Newsletter form submission
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = newsletterForm.querySelector('input[type="email"]').value;
+            
+            // Show success toast
+            showToast('Successfully subscribed to our newsletter!', 'success');
+            
+            // Reset form
+            newsletterForm.reset();
+            
+            // Log data (in real app, send to server)
+            console.log('Newsletter subscription:', email);
+        });
 
         // Quick order form
         quickOrderForm.addEventListener('submit', (e) => {
@@ -2608,27 +2721,6 @@
             img.addEventListener('load', function() {
                 this.style.animation = 'fadeIn 0.5s ease';
             });
-        });
-
-        // Format card number input
-        document.getElementById('cardNumber').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\s/g, '');
-            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
-            e.target.value = formattedValue;
-        });
-
-        // Format expiry date input
-        document.getElementById('expiryDate').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length >= 2) {
-                value = value.slice(0, 2) + '/' + value.slice(2, 4);
-            }
-            e.target.value = value;
-        });
-
-        // Format CVV input
-        document.getElementById('cvv').addEventListener('input', function(e) {
-            e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
         });
     </script>
 </body>
